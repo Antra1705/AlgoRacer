@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: var(--color-emerald-950);
+  --color-brand-secondary: var(--color-emerald-900);
+  --color-accent: var(--color-amber-400);
+  --color-algo-a: var(--color-red-400);
+  --color-algo-b: var(--color-sky-400);
+}
+
+:root {
+  background-color: theme('colors.emerald.950');
+  color: white;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar for that premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme('colors.emerald.950');
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme('colors.emerald.800');
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.emerald.700');
+}
+
+.glass-card {
+  background: rgba(6, 78, 59, 0.4); /* emerald-900 with opacity */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glowing-button {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+}
+
+.glowing-button:hover:not(:disabled) {
+  box-shadow: 0 0 25px rgba(251, 191, 36, 0.5);
+  transform: translateY(-1px);
+}
+
+.glowing-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
