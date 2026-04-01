@@ -19,7 +19,6 @@ body {
   min-height: 100vh;
 }
 
-/* Custom scrollbar for that premium feel */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -38,7 +37,7 @@ body {
 }
 
 .glass-card {
-  background: rgba(6, 78, 59, 0.4); /* emerald-900 with opacity */
+  background: rgba(6, 78, 59, 0.4); 
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
