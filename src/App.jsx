@@ -54,6 +54,7 @@ const App = () => {
   const [mSize, setMSize] = useState(50);
   const [vSize, setVSize] = useState(100);
   const [eSize, setESize] = useState(500);
+  const [simDelay, setSimDelay] = useState(100);
 
   const [results, setResults] = useState({
     algoA: { ops: 0, time: 0 },
@@ -181,7 +182,7 @@ const App = () => {
           });
         }
 
-        await new Promise(r => setTimeout(r, 100));
+        await new Promise(r => setTimeout(r, simDelay));
         setChartData([...newChartData]);
       }
     } catch (error) {
@@ -266,6 +267,15 @@ const App = () => {
                     className="w-full h-1.5 bg-emerald-800 rounded-lg accent-amber-400 appearance-none" />
                 </div>
               )}
+
+              <div className="space-y-2 pt-2 border-t border-emerald-900">
+                <label className="text-xs uppercase text-emerald-400 tracking-wider flex justify-between">
+                  <span>Animation Delay: <span className="text-amber-400 font-mono">{simDelay}ms</span></span>
+                  <span className="text-emerald-500 font-mono text-[10px]">(~{(1000 / simDelay).toFixed(0)} steps/s)</span>
+                </label>
+                <input type="range" min="50" max="1000" step="50" value={simDelay} onChange={(e) => setSimDelay(parseInt(e.target.value))} disabled={isRacing}
+                  className="w-full h-1.5 bg-emerald-800 rounded-lg accent-amber-400 appearance-none disabled:opacity-50" />
+              </div>
             </div>
 
             {/* Algo Selection */}
